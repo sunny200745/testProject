@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="heading">
+         <div class="col">Caps</div>
+         <div class="col">Qunatity </div>
+         <div class="col">Price($) </div>
+    </div>
+    <div class="table-row" ng-repeat="product in visibleData | startFrom:currentPage*pageSize | limitTo:pageSize">
+
+         <div class="col">{{product.Name}}</div>
+
+         <div class="col">
+            <span ng-hide="product.Name === editQtyProdName">{{product.Qty}} </span>
+            <input type="button" value="Edit" style="float:right" ng-click="editQtyCalled(product)" ng-hide="product.Name === editQtyProdName">
+            <input type="button" value="Save" style="float:right" ng-click="saveQtyCalled(product)" ng-hide="product.Name !== editQtyProdName">
+            <input type="text" ng-show="product.Name === editQtyProdName" ng-model="quantity">
+        </div>
+
+        <div class="col">
+            <span ng-hide="product.Name === editQtyProdName">{{product.Price}} </span> 
+            <input type="button" value="Edit" style="float:right" ng-click="editPriceCalled(product)" ng-hide="product.Name === editPriceProdName">
+            <input type="button" value="Save" style="float:right" ng-click="savePriceCalled(product)" ng-hide="product.Name !== editPriceProdName">
+            <input type="text" ng-show="product.Name === editPriceProdName" >
+        </div>
+
+
+    </div>
+
+
+    <input ng-disabled="currentPage === 0" type="button" value="Prev" ng-click="prev()">
+        <div ng-repeat="i in getNumber(numberOfPages) track by $index">  
+              {{currentPage}}        
+            <a ng-class="{true : 'redClass',false :  'greenClass'}[currentPage === {{$index}}]" href="#" >{{$index+1}}</a>
+        </div>
+    <input ng-disabled="currentPage >= visibleData.length/pageSize - 1" type="button" value="Next" ng-click="next()">
+    
+</div>

@@ -1,0 +1,107 @@
+[
+    {
+        "Name": "Puma Long hat",
+        "Qty": 12,
+        "Price": "$2.50"
+    },
+    {
+        "Name": "Nike round hat",
+        "Qty": 12,
+        "Price": "$2.00"
+    },
+    {
+        "Name": "Adidas baseball cap",
+        "Qty": 2,
+        "Price": "$3.50"
+    },
+    {
+        "Name": "ESPN cricket cap",
+        "Qty": 23,
+        "Price": "$6.00"
+    },
+    {
+        "Name": "Nike woman cap",
+        "Qty": 22,
+        "Price": "$2.10"
+    },
+    {
+        "Name": "Rockstar cap",
+        "Qty": 11,
+        "Price": "$1.30"
+    },
+    {
+        "Name": "Montecarlo winter cap",
+        "Qty": 98,
+        "Price": "$9.00"
+    },
+    {
+        "Name": "Puma Long hat1",
+        "Qty": 12,
+        "Price": "$2.50"
+    },
+    {
+        "Name": "Nike round hat1",
+        "Qty": 12,
+        "Price": "$2.00"
+    },
+    {
+        "Name": "Adidas baseball cap1",
+        "Qty": 2,
+        "Price": "$3.50"
+    },
+    {
+        "Name": "ESPN cricket cap1",
+        "Qty": 23,
+        "Price": "$6.00"
+    },
+    {
+        "Name": "Nike woman cap1",
+        "Qty": 22,
+        "Price": "$2.10"
+    },
+    {
+        "Name": "Rockstar cap1",
+        "Qty": 11,
+        "Price": "$1.30"
+    },
+    {
+        "Name": "Montecarlo winter cap1",
+        "Qty": 98,
+        "Price": "$9.00"
+    },
+    {
+        "Name": "Nike round hat2",
+        "Qty": 12,
+        "Price": "$2.00"
+    },
+    {
+        "Name": "Puma Long hat1",
+        "Qty": 12,
+        "Price": "$2.50"
+    },
+    {
+        "Name": "Adidas baseball cap2",
+        "Qty": 2,
+        "Price": "$3.50"
+    },
+    {
+        "Name": "ESPN cricket cap2",
+        "Qty": 23,
+        "Price": "$6.00"
+    },
+    {
+        "Name": "Nike woman cap2",
+        "Qty": 22,
+        "Price": "$2.10"
+    },
+    {
+        "Name": "Rockstar cap2",
+        "Qty": 11,
+        "Price": "$1.30"
+    },
+    {
+        "Name": "Montecarlo winter cap2",
+        "Qty": 98,
+        "Price": "$9.00"
+    }
+]

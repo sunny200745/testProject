@@ -8,7 +8,7 @@
 
         <div class="col">{{product.Name}}</div>
 
-         <div class="col quantity" data-product="{{product}}"  id="{{product.Id}}_Qty">
+         <div class="col quantity" data-product="{{product}}"  id="{{product.Id}}_Qty"  ng-mouseenter='mouseEntered(product)'>
             <span ng-hide="product.Name === editQtyProdName" >{{product.Qty}} </span>
             <input type="text" ng-show="product.Name === editQtyProdName" ng-model="quantity">
 

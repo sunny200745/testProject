@@ -8,7 +8,7 @@
  * Controller of the testApp
  */
 var testApp = angular.module('testApp');
-  testApp.controller('AdminCtrl',['$scope','$http','data', '$rootScope' ,function ($scope,$http, data, $rootScope) {
+  testApp.controller('AdminCtrl',['$scope','$http','data', '$rootScope', 'popupService' ,function ($scope,$http, data, $rootScope, popupService) {
     $scope.moduleName = "admin";
     $rootScope.adminScope = $scope;
     $scope.editQtyProdName ;
@@ -68,20 +68,38 @@ var testApp = angular.module('testApp');
       }
       $scope.currentPage -= 1;
 
-    }
+    };
 
     $scope.numberOfPages=function(){
       return Math.ceil($scope.visibleData.length/$scope.pageSize);
-    }
+    };
 
     $scope.numberOfDummyPages=function(){
       return 6;
-    }
+    };
    // console.debug($scope.numberOfPages())
 
     $scope.getNumber = function(num) {
       return new Array(num());
     };
+
+    $scope.mouseLeft = function(product){
+      console.debug("mouseLeft");
+      if(popupService.isOpenDialog('hoverPopup')){
+        popupService.closeDialog('hoverPopup');
+        popupService.removeDialog('hoverPopup');
+      }
+    };
+
+    $scope.mouseEntered = function(product){
+      console.debug("mouseEntered");
+      if(popupService.isOpenDialog('hoverPopup')){
+        popupService.closeDialog('hoverPopup');
+        popupService.removeDialog('hoverPopup');
+      }
+      popupService.dialog("hoverPopup", $scope, 'hover', product,function(){},function(){})
+    };
+
   }]);
 
  /* testApp.filter('startFrom', function() {

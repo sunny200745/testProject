@@ -1,7 +1,9 @@
 {
   "name": "test",
   "version": "0.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "grunt-cli": "~0.1.13"
+  },
   "devDependencies": {
     "grunt": "^0.4.1",
     "grunt-autoprefixer": "^0.7.3",
@@ -29,7 +31,9 @@
     "karma-jasmine": "^0.1.5",
     "karma-phantomjs-launcher": "^0.1.4",
     "load-grunt-tasks": "^0.4.0",
-    "time-grunt": "^0.3.1"
+    "time-grunt": "^0.3.1",
+    "angular-resource": "~0.1.1",
+    "angular-route": "~1.2.17-build.163.1"
   },
   "engines": {
     "node": ">=0.10.0"

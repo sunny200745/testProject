@@ -1,16 +1,26 @@
-var module = angular.module('testApp', []);
- 
-module.service('data', ['$http',function($http){
-    var products  = [];
 
-    this.getProducts = function(){
+angular.module('testApp')
+.service('data',[ '$http', function($http){
 
-    	return products;
-    };
+    this.products = function(callback){
+    	$http({
+          method: 'GET',
+          url: './json/products.json'
+        }).
+        success(function(data, status, headers, config) {
+          // this callback will be called asynchronously
+          // when the response is available
 
-    this.setProducts = function(prod){
-      	products.push(prod)
-    };
+          //console.debug(data);
+          callback(data);
 
+        }).
+        error(function(data, status, headers, config) {
+        	callback(false);
+          // called asynchronously if an error occurs
+          // or server returns response with an error status.
+        });
+    }
 
 }]);
+

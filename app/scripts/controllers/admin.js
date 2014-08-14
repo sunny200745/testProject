@@ -7,74 +7,86 @@
  * # MainCtrl
  * Controller of the testApp
  */
-var testApp = angular.module('testApp')
-  .controller('AdminCtrl',['$scope','$http', function ($scope,$http) {
+var testApp = angular.module('testApp');
+  testApp.controller('AdminCtrl',['$scope','$http','data', '$rootScope' ,function ($scope,$http, data, $rootScope) {
     $scope.moduleName = "admin";
-   
+    $rootScope.adminScope = $scope;
+    $scope.editQtyProdName ;
+    $scope.editPriceProdName ;
+    data.products(function(d){
+      if(d){
+        $scope.visibleData = d;
+      }
+    });
+    //$scope.products = [];
+    $scope.editQtyCalled = function(product){
+    	$scope.quantity = product.Qty
+    	$scope.editQtyProdName = product.Name;
+    	var newQty = $scope.quantity;
+      $scope.editPriceProdName = "";
 
-  $scope.editQtyCalled = function(product){
-  	$scope.quantity = product.Qty	
-  	$scope.editQtyProdName = product.Name;
-  	var newQty = $scope.quantity
-  	console.debug(newQty)
+    };
+    $scope.editPriceCalled = function(product){
+    	$scope.editPriceProdName = product.Name;
+      $scope.editQtyProdName = "";
+    };
 
-  };
-  $scope.editPriceCalled = function(product){
-  	
-  	$scope.editPriceProdName = product.Name;
-  };
+    $scope.saveQtyCalled = function(product){
+    	console.debug(product);
+    };
+    $scope.savePriceCalled = function(product){
+    	console.debug(product);
 
-  $scope.saveQtyCalled = function(product){
-  	console.debug(product);
-  };
-  $scope.savePriceCalled = function(product){
-  	console.debug(product);
-  	
-  };
+    };
 
 
-  $scope.currentPage = 0;
-  $scope.pageSize = 7;
-  $scope.visibleData = [];
-  
-  
+    $scope.currentPage = 0;
+    $scope.pageSize = 7;
+    $scope.visibleData = [];
 
-  
 
-  for (var i=0; i<$scope.products.length; i++) {
-    $scope.visibleData.push($scope.products[i]);
-  }
 
-  console.debug($scope.visibleData)
+    /*$scope.checkEdit = function(product){
+      if(product && $scope.editQtyProdName){
+        return product.Name === $scope.editQtyProdName
+      }
 
-  $scope.next = function(){    
-    $scope.currentPage += 1;
-    console.debug($scope.currentPage)
-  };
+    };*/
 
-  $scope.prev = function(){
-    if($scope.currentPage === 0){
-      return false;
+
+
+    //console.debug($scope.visibleData)
+
+    $scope.next = function(){
+      $scope.currentPage += 1;
+      console.debug($scope.currentPage)
+    };
+
+    $scope.prev = function(){
+      if($scope.currentPage === 0){
+        return false;
+      }
+      $scope.currentPage -= 1;
+
     }
-    $scope.currentPage -= 1;
 
-  }
+    $scope.numberOfPages=function(){
+      return Math.ceil($scope.visibleData.length/$scope.pageSize);
+    }
 
-  $scope.numberOfPages=function(){
-    return Math.ceil($scope.visibleData.length/$scope.pageSize);                
-  }
-  console.debug($scope.numberOfPages())
+    $scope.numberOfDummyPages=function(){
+      return 6;
+    }
+   // console.debug($scope.numberOfPages())
 
-  $scope.getNumber = function(num) {
-    return new Array(num());   
-  };
-
-
-
+    $scope.getNumber = function(num) {
+      return new Array(num());
+    };
   }]);
-  testApp.filter('startFrom', function() {
+
+ /* testApp.filter('startFrom', function() {
       return function(input, start) {
           start = +start; //parse to int
           return input.slice(start);
       }
-  });
+  });*/

@@ -8,7 +8,7 @@
 
         <div class="col">{{product.Name}}</div>
 
-         <div class="col quantity" data-product="{{product}}"  id="{{product.Id}}_Qty"  ng-mouseenter='mouseEntered(product)'>
+        <div class="col quantity" data-product="{{product}}"  id="{{product.Id}}_Qty"  ng-mouseenter='mouseEntered(product)'>
             <span ng-hide="product.Name === editQtyProdName" >{{product.Qty}} </span>
             <input type="text" ng-show="product.Name === editQtyProdName" ng-model="quantity">
 
@@ -28,7 +28,7 @@
     <input ng-disabled="currentPage === 0" type="button" value="Prev" ng-click="prev()" style="float:left; margin-top:10px">
    <!--  <input type="button" value="..."  style="float:left; margin:10px 29px"> -->
         <div  ng-repeat="i in getNumber(numberOfPages) track by $index">
-            <a ng-class="{true : 'redClass',false :  'greenClass'}[currentPage === {{$index}}]" href="#" style="float:left; margin : 10px 29px;">{{$index+1}}</a>
+            <input type="button" ng-class="{true : 'redClass',false :  'greenClass'}[currentPage === {{$index}}]"  style="float:left; margin : 10px 29px;" ng-click="onCLickPagedNumber($index)" value="{{$index+1}}">
         </div>
     <!-- <input type="button" value="..."  style="float:left; margin:10px 29px"> -->
 

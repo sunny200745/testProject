@@ -59,7 +59,7 @@ var testApp = angular.module('testApp');
 
     $scope.next = function(){
       $scope.currentPage += 1;
-      console.debug($scope.currentPage)
+      //console.debug($scope.currentPage)
     };
 
     $scope.prev = function(){
@@ -100,11 +100,13 @@ var testApp = angular.module('testApp');
       popupService.dialog("hoverPopup", $scope, 'hover', product,function(){},function(){})
     };
 
+    $scope.onCLickPagedNumber = function(number){
+      console.debug(number)
+      console.debug($scope.currentPage)
+      $scope.currentPage = number;
+      console.debug($scope.currentPage)
+    };
+
   }]);
 
- /* testApp.filter('startFrom', function() {
-      return function(input, start) {
-          start = +start; //parse to int
-          return input.slice(start);
-      }
-  });*/
+

@@ -15,17 +15,27 @@
     <!-- endbuild -->
   </head>
   <body ng-app="testApp" clickHandler docclick>
-    <div class="container" ng-controller="MainCtrl">
-
-      <div ng-view ></div>
+    <div class="container" ng-controller="MainCtrl" >
+        <div >  
+            <ul testdirective="itemsArr">
+                <li ng-repeat="item in itemsArr">
+                    <h2> HI I AM AT INDEX {{$index}} and name is {{item}}.</h2>
+                </li>    
+            </ul>
+        </div>
+        <div ng-view ></div>
     </div>
 
 
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
+    <script src="vendor/es5-shim/es5-shim.js"></script>
     <script src="vendor/angular/angular.js"></script>
-    <script src='vendor/angular-route/angular-route.js'></script>
+    <script src="vendor/json3/lib/json3.js"></script>
+    <script src="vendor/angular-route/angular-route.js"></script>
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.0.js"></script>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -40,6 +50,7 @@
         <script src="scripts/services/data.js"></script>
         <script src="scripts/filters/pagedFilter.js"></script>
         <script src="scripts/directives/docClick.js"></script>
+        <script src="scripts/directives/testdirective.js"></script>
 
         <script src="scripts/controllers/hover.js"></script>
         <script src="scripts/services/popupservice.js"></script>

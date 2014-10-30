@@ -15,14 +15,7 @@
     <!-- endbuild -->
   </head>
   <body ng-app="testApp" clickHandler docclick>
-    <div class="container" ng-controller="MainCtrl" >
-        <div >  
-            <ul testdirective="itemsArr">
-                <li ng-repeat="item in itemsArr">
-                    <h2> HI I AM AT INDEX {{$index}} and name is {{item}}.</h2>
-                </li>    
-            </ul>
-        </div>
+    <div class="container" ng-controller="MainCtrl" >        
         <div ng-view ></div>
     </div>
 
